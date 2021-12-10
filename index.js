@@ -13,7 +13,7 @@ function doAudit({ package, packageLock }) {
   shell.touch([fileNames.package, fileNames.packageLock]);
   shell.ShellString(package).to(fileNames.package);
   shell.ShellString(packageLock).to(fileNames.packageLock);
-  const audit = shell.exec('npm audit --json', { silent: true });
+  const audit = shell.exec('npm audit --json  --production', { silent: true });
   shell.rm('-f', [fileNames.package, fileNames.packageLock]);
   shell.cd(dirBefore);
 
