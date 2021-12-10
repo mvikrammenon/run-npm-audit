@@ -21,7 +21,7 @@ function doAudit({ package, packageLock }) {
     throw Error(`Audit failed! ${audit.stderr}`);
   }
 
-  return JSON.parse(audit.stdout);
+  return audit.stdout;
 }
 
 function runNpmAudit({ package, packageLock } = {}) {
