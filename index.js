@@ -21,7 +21,7 @@ function doAudit({ package, packageLock }) {
     throw Error(`Audit failed! ${audit.stderr}`);
   }
 
-  return audit.stdout;
+  return JSON.parse(audit.stdout);
 }
 
 function runNpmAudit({ package, packageLock } = {}) {
@@ -30,7 +30,7 @@ function runNpmAudit({ package, packageLock } = {}) {
 
   const audit = doAudit({ package, packageLock });
 
-  return audit;
+  return JSON.stringify(audit);
 }
 
 
